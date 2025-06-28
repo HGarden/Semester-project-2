@@ -14,5 +14,18 @@ export default defineConfig({
         }
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      input: [
+        'index.html',
+        'auctions.html',
+        'profile.html',
+        'login.html',
+        'register.html',
+        'create-listing.html',
+        'listing.html'
+           ]
+    }
   }
 });
