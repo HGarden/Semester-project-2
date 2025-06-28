@@ -5,7 +5,39 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Handle specific routes for your HTML pages
+[[redirects]]
+  from = "/auctions"
+  to = "/auctions.html"
+  status = 200
+
+[[redirects]]
+  from = "/profile"
+  to = "/profile.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/register.html"
+  status = 200
+
+[[redirects]]
+  from = "/create-listing"
+  to = "/create-listing.html"
+  status = 200
+
+[[redirects]]
+  from = "/listing"
+  to = "/listing.html"
+  status = 200
+
+# Fallback for any other routes
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
