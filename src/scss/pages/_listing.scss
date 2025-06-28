@@ -1,0 +1,304 @@
+/**
+ * Listing detail page
+ */
+@use '../variables' as *;
+
+.listing-page-section {
+  padding: 2rem 0;
+  min-height: 70vh;
+}
+
+.listing-detail-card {
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+}
+
+.listing-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+  padding: $spacing-xl;
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.listing-gallery {
+  .main-image-container {
+    margin-bottom: $spacing-lg;
+    
+    .listing-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $border-radius-lg;
+    }
+  }
+  
+  .thumbnails-container {
+    display: flex;
+    gap: $spacing-sm;
+    overflow-x: auto;
+    
+    .thumbnail-btn {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border: 2px solid $border-color;
+      border-radius: $border-radius-md;
+      overflow: hidden;
+      cursor: pointer;
+      
+      &:hover,
+      &:focus,
+      &.active {
+        border-color: $primary-color;
+      }
+      
+      .thumbnail-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.listing-details {
+  .listing-header {
+    margin-bottom: $spacing-lg;
+    
+    .listing-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: $text-primary;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .listing-seller {
+      color: $text-secondary;
+    }
+  }
+  
+  .listing-description {
+    margin-bottom: $spacing-xl;
+    
+    p {
+      color: $text-primary;
+    }
+  }
+  
+  .listing-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    
+    .stat-card {
+      background: $surface-light;
+      border-radius: $border-radius-lg;
+      padding: $spacing-lg;
+      
+      .stat-label {
+        font-size: 0.875rem;
+        color: $text-secondary;
+        margin-bottom: $spacing-xs;
+      }
+      
+      .stat-value {
+        font-size: 1.125rem;
+        font-weight: 600;
+        
+        &.stat-bid {
+          color: $success-color;
+        }
+        
+        &.stat-expired {
+          color: $error-color;
+        }
+      }
+    }
+  }
+  
+  .bid-section {
+    margin-bottom: $spacing-xl;
+    
+    .bid-section-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: $spacing-md;
+    }
+    
+    .bid-form {
+      display: flex;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-sm;
+      
+      .bid-input {
+        flex: 1;
+        padding: $spacing-sm $spacing-md;
+        border: 1px solid $border-color;
+        border-radius: $border-radius-md;
+        
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+      }
+    }
+    
+    .bid-credits-info {
+      font-size: 0.875rem;
+      color: $text-secondary;
+      
+      .credits-amount {
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .login-prompt {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    
+    .login-prompt-text {
+      color: #1e40af;
+      margin-bottom: $spacing-sm;
+    }
+  }
+  
+  .auction-ended {
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    
+    .auction-ended-text {
+      color: #991b1b;
+      font-weight: 600;
+    }
+  }
+  
+  .owner-badge {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    margin-bottom: $spacing-xl;
+    
+    .owner-badge-text {
+      color: #065f46;
+    }
+  }
+}
+
+.bid-history-section {
+  border-top: 1px solid $border-color;
+  padding: $spacing-xl;
+  
+  .bid-history-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+  }
+  
+  .bid-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    
+    .bid-history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: $spacing-md;
+      background: $surface-light;
+      border-radius: $border-radius-md;
+      
+      &.highest-bid {
+        background: rgba(16, 185, 129, 0.05);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+      }
+      
+      .bid-info {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        
+        .bidder-name {
+          font-weight: 600;
+        }
+        
+        .highest-bid-badge {
+          font-size: 0.75rem;
+          background: rgba(16, 185, 129, 0.1);
+          color: #065f46;
+          padding: $spacing-xs $spacing-sm;
+          border-radius: $border-radius-sm;
+        }
+      }
+      
+      .bid-details {
+        display: flex;
+        align-items: center;
+        gap: $spacing-lg;
+        
+        .bid-amount {
+          font-weight: 700;
+          color: $success-color;
+        }
+        
+        .bid-date {
+          font-size: 0.875rem;
+          color: $text-secondary;
+        }
+      }
+    }
+    
+    .no-bids-text {
+      color: $text-secondary;
+      text-align: center;
+      padding: $spacing-lg;
+    }
+  }
+  
+  .login-required {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: $border-radius-lg;
+    padding: $spacing-xl;
+    text-align: center;
+    
+    .login-required-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: $spacing-sm;
+    }
+    
+    .login-required-text {
+      color: #1e40af;
+    }
+  }
+}
+
+.error-display {
+  text-align: center;
+  padding: $spacing-xl;
+  
+  .error-message {
+    color: $error-color;
+    font-size: 1.125rem;
+    margin-bottom: $spacing-lg;
+  }
+}

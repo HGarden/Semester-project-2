@@ -1,0 +1,80 @@
+/**
+ * Footer styles
+ */
+@use '../variables' as *;
+
+.main-footer {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: white;
+  padding: 2rem 0 1rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer-brand {
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    color: #d1d5db;
+    line-height: 1.5;
+    max-width: 350px;
+    font-size: 0.875rem;
+  }
+}
+
+.footer-links {
+  display: grid;
+  gap: 1.5rem;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.footer-column {
+  h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+  
+  a {
+    display: block;
+    color: #d1d5db;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+    transition: color var(--transition-base);
+    font-size: 0.875rem;
+    
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #374151;
+  
+  p {
+    color: #9ca3af;
+    font-size: 0.75rem;
+  }
+}

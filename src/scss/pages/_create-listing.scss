@@ -1,0 +1,156 @@
+/**
+ * Create listing page
+ */
+@use '../variables' as *;
+@use 'sass:color';
+
+.create-listing-page-section {
+  padding: 4rem 0;
+  min-height: 70vh;
+}
+
+.create-listing-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-listing-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  
+    h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+}
+
+.create-listing-card {
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-xl;
+}
+
+.create-listing-form {
+  .form-group {
+    margin-bottom: $spacing-xl;
+  }
+  
+  .form-hint {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    margin-top: $spacing-xs;
+  }
+  
+  .media-container {
+    .media-item {
+      border: 1px solid $border-color;
+      border-radius: $border-radius-md;
+      padding: $spacing-md;
+      margin-bottom: $spacing-md;
+      
+      .media-item-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-sm;
+        
+        .media-item-label {
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: $text-primary;
+        }
+        
+        .remove-media-btn {
+          background: none;
+          border: none;
+          color: $error-color;
+          font-size: 0.875rem;
+          cursor: pointer;
+          
+          &:hover {
+            color: color.adjust($error-color, $lightness: -10%);
+          }
+        }
+      }
+      
+      .media-inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: $spacing-md;
+        
+        @media (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .input-group {
+        .input-label {
+          display: block;
+          font-size: 0.75rem;
+          font-weight: 500;
+          color: $text-secondary;
+          margin-bottom: $spacing-xs;
+        }
+        
+                .media-url-input,
+        .media-alt-input {
+          width: 100%;
+          padding: $spacing-sm;
+          border: 2px solid $border-color;
+          border-radius: $border-radius-sm;
+          font-size: 0.875rem;
+          background: $surface-color;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          transition: all $transition-fast;
+          
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+            background: white;
+          }
+          
+          &:hover {
+            border-color: $primary-light;
+          }
+        }
+      }
+    }
+    
+    .add-media-btn {
+      background: none;
+      border: none;
+      color: $primary-color;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: $spacing-sm;
+      
+      &:hover {
+        color: $primary-hover;
+      }
+    }
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: $spacing-md;
+    
+    .btn-primary,
+    .btn-secondary {
+      flex: 1;
+      padding: $spacing-md $spacing-lg;
+      font-weight: 500;
+      
+    }
+  }
+}

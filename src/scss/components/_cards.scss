@@ -1,0 +1,286 @@
+/**
+ * Auction card styles
+ */
+@use '../variables' as *;
+
+// Card grid
+.auction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-xl;
+  margin: $spacing-3xl 0;
+  
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+// Enhanced auction card
+.auction-card {
+  background: $surface-color;
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  border: 1px solid $border-color;
+  transition: all $transition-normal;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+    border-color: rgba($primary-color, 0.2);
+  }
+  
+  .card-image {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 60%,
+        rgba(0, 0, 0, 0.7) 100%
+      );
+      opacity: 0;
+      transition: opacity $transition-normal;
+    }
+    
+    .status-badge {
+      position: absolute;
+      top: $spacing-md;
+      right: $spacing-md;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-md;
+      font-size: 0.75rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      
+      &.active {
+        background: rgba($success-color, 0.9);
+        color: white;
+      }
+      
+      &.ending-soon {
+        background: rgba($warning-color, 0.9);
+        color: white;
+      }
+      
+      &.ended {
+        background: rgba($danger-color, 0.9);
+        color: white;
+      }
+    }
+  }
+  
+  &:hover {
+    .card-image {
+      img {
+        transform: scale(1.05);
+      }
+      
+      .image-overlay {
+        opacity: 1;
+      }
+    }
+  }
+  
+  .card-content {
+    padding: $spacing-lg;
+    
+    .card-title {
+      font-family: $font-family-heading;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $dark-color;
+      margin-bottom: $spacing-sm;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .card-description {
+      color: $text-light;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: $spacing-md;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-lg;
+      font-size: 0.875rem;
+      color: $text-light;
+      
+      .seller-info {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        
+        &::before {
+          content: '👤';
+          font-size: 0.75rem;
+        }
+      }
+      
+      .end-date {
+        &.ended {
+          color: $danger-color;
+          font-weight: 600;
+        }
+        
+        &.ending-soon {
+          color: $warning-color;
+          font-weight: 600;
+        }
+      }
+    }
+    
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .current-bid {
+        .bid-label {
+          font-size: 0.75rem;
+          color: $text-lighter;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          font-weight: 600;
+        }
+        
+        .bid-amount {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: $secondary-color;
+          
+          &.no-bids {
+            color: $text-light;
+            font-size: 1rem;
+            font-weight: 500;
+          }
+        }
+      }
+      
+      .view-button {
+        padding: $spacing-sm $spacing-lg;
+        background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
+        color: white;
+        border: none;
+        border-radius: $border-radius-lg;
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all $transition-fast;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-xs;
+        
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: $shadow-md;
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+        
+        &::after {
+          content: '→';
+          transition: transform $transition-fast;
+        }
+        
+        &:hover::after {
+          transform: translateX(2px);
+        }
+      }
+
+      .view-details-btn {
+        padding: $spacing-sm;
+        background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
+        color: white;
+        border: none;
+        border-radius: $border-radius-lg;
+        font-weight: 600;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: all $transition-fast;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-xs;      }
+    }
+  }
+}
+
+
+
+// Alternative card layouts for different pages
+.auctions-grid {
+  display: grid;
+  gap: 2rem;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// Empty states
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  
+  .empty-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 1rem;
+    opacity: 0.5;
+    color: #9ca3af;
+  }
+  
+  .empty-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .empty-description {
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,106 @@
+/**
+ * Base styles and typography
+ */
+@use '../variables' as *;
+
+// CSS Reset for margin/padding
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+// Base layout styles
+body {
+  font-family: $font-family-primary;
+  background-color: $background-color;
+  color: $text-color;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Main container
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+  
+  @media (min-width: 640px) {
+    padding: 0 $spacing-lg;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Utility classes
+.gradient-text {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// Text utility
+.text-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-base);
+  
+  &:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+}
+
+// Empty message styles
+.empty-message {
+  color: $text-secondary;
+  text-align: center;
+  padding: $spacing-xl;
+  font-style: italic;
+  grid-column: 1 / -1; // Span full width in grid
+}
+
+// View all section
+.view-all-section {
+  text-align: center;
+  margin-top: $spacing-3xl;
+}
+
+// Sticky footer layout
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+}
+
+.main-footer {
+  margin-top: auto;
+}

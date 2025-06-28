@@ -1,0 +1,67 @@
+/**
+ * Search section styles
+ */
+@use '../variables' as *;
+
+.search-section {
+  background: $surface-color;
+  border-radius: $border-radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $shadow-lg;
+  margin-top: -$spacing-xl;
+  position: relative;
+  z-index: 2;
+  border: 1px solid $border-color;
+  
+  .search-form {
+    display: flex;
+    gap: $spacing-md;
+    max-width: 600px;
+    margin: 0 auto;
+    
+    @media (max-width: 640px) {
+      flex-direction: column;
+    }
+    
+    input {
+      flex: 1;
+      padding: $spacing-md $spacing-lg;
+      border: 2px solid $border-color;
+      border-radius: $border-radius-lg;
+      font-size: 1rem;
+      transition: all $transition-normal;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+      
+      &::placeholder {
+        color: $text-lighter;
+      }
+    }
+    
+    button {
+      padding: $spacing-md $spacing-xl;
+      background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
+      color: white;
+      border: none;
+      border-radius: $border-radius-lg;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all $transition-normal;
+      white-space: nowrap;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}

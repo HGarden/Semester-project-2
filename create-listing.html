@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Listing - Auction House</title>
+  <link rel="stylesheet" href="./src/scss/styles.scss">
+  <meta name="description" content="Create a new auction listing at Grand Auction House. Sell your unique items to our exclusive community.">
+</head>
+<body>
+  <header class="main-header" id="main-header">
+    <div class="header-container">
+      <div class="brand">
+        <a href="/" class="brand-text">Grand Auction House</a>
+        <span class="brand-subtitle">Your gateway to exclusive treasures</span>
+      </div>
+      
+      <nav class="main-navigation">
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/auctions.html">Auctions</a>
+        </div>
+        
+        <div class="auth-section" id="auth-nav">
+          <!-- Auth navigation will be populated by JavaScript -->
+        </div>
+        
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-nav-links">
+      <a href="/">Home</a>
+      <a href="/auctions.html">Auctions</a>
+    </div>
+    <div class="mobile-auth-section" id="mobile-auth-nav">
+      <!-- Mobile auth navigation will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <main class="main-container">
+    <section class="create-listing-page-section">
+      <div class="create-listing-container">
+        <div class="create-listing-header">
+          <h1>Create New Listing</h1>
+          <p>Share your unique items with our exclusive auction community</p>
+        </div>
+        
+        <div id="create-listing-container">
+          <!-- Create listing form will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="main-container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Grand Auction House</h3>
+          <p>Your gateway to exclusive treasures</p>
+        </div>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="/">Home</a>
+            <a href="/auctions.html">All Auctions</a>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Account</h4>
+            <a href="/profile.html">Profile</a>
+            <a href="/create-listing.html">Create Listing</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Grand Auction House. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script type="module" src="./src/js/main.js"></script>
+<script type="module" src="./src/js/create-listing.js"></script>
+</body>
+</html>
